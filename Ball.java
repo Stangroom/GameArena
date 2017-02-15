@@ -1,8 +1,11 @@
+import java.util.Random;
+
 /**
  * Models a simple solid sphere. 
  * This class represents a Ball object. When combined with the GameArena class,
  * instances of the Ball class can be displayed on the screen.
  */
+ 
 public class Ball 
 {
 	// The following instance variables define the
@@ -14,6 +17,8 @@ public class Ball
 	private double yPosition;			// The Y coordinate of this Ball
 	private double size;				// The diameter of this Ball
 	private String colour = "WHITE";	// The colour of this Ball
+	private int xMove, yMove;
+	
 
 										// Permissable colours are 8 bit hexadecimal 
                                         // RGB values in the format #RRGGBB. e.g.
@@ -75,14 +80,28 @@ public class Ball
 	{
 		return colour;
 	}
+	
+	public move(){
+		this.xPosition = xPosition + xMove;
+		this.yPosition = yPosition + yMove;
+	}
 
-
-	public Ball(double x, double y, double diameter, String col)
+	public Ball(double dimentionX, double dimentionY, double diameter, String col)
 	{
-		xPosition = x;
-		yPosition = y;
+		Random rand;
+		int randomNum = rand.nextInt(dimentionX + 1);
+		xPosition = (double)randomNum;
+		
+		randomNum = rand.nextInt(dimentionY + 1);
+		yPosition = (double)randomNum;
 
 		size = diameter;
 		colour = col;
+		
+		randomNum = rand.nextInt((10 - 1) + 1) + 1;
+		xMove = randomNum;
+		
+		randomNum = rand.nextInt((10 - 1) + 1) + 1;
+		yMove = randomNum;
 	}	
 }
