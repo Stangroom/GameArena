@@ -13,8 +13,8 @@ public class Ball
 	// Feel free to more instance variables if you think it will 
 	// support your work... 
 	
-	private double xPosition;			// The X coordinate of this Ball
-	private double yPosition;			// The Y coordinate of this Ball
+	private double xPosition, sizeX;			// The X coordinate of this Ball
+	private double yPosition, sizeY;			// The Y coordinate of this Ball
 	private double size;				// The diameter of this Ball
 	private String colour = "WHITE";	// The colour of this Ball
 	private int xMove, yMove;
@@ -84,15 +84,27 @@ public class Ball
 	public void move(){
 		this.xPosition = xPosition + xMove;
 		this.yPosition = yPosition + yMove;
+		
+		if(xPosition < 0 || xPosition > sizeX){
+			xMove = -(xMove);
+		}
+		
+		if(yPosition < 0 || yPosition > sizeY){
+			yMove = -(yMove);
+		}
+			
 	}
 
 	public Ball(double dimentionX, double dimentionY, double diameter, String col)
 	{
+		 sizeX = dimentionX;
+		 sizeY = dimentionY;
+		
 		Random rand = new Random();
-		int randomNum = rand.nextInt((int)dimentionX + 1);
+		int randomNum = rand.nextInt((int)sizeX + 1);
 		xPosition = (double)randomNum;
 		
-		randomNum = rand.nextInt((int)dimentionY + 1);
+		randomNum = rand.nextInt((int)sizeY + 1);
 		yPosition = (double)randomNum;
 
 		size = diameter;
