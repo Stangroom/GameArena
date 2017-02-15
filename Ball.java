@@ -81,18 +81,18 @@ public class Ball
 		return colour;
 	}
 	
-	public move(){
+	public void move(){
 		this.xPosition = xPosition + xMove;
 		this.yPosition = yPosition + yMove;
 	}
 
 	public Ball(double dimentionX, double dimentionY, double diameter, String col)
 	{
-		Random rand;
-		int randomNum = rand.nextInt(dimentionX + 1);
+		Random rand = new Random();
+		int randomNum = rand.nextInt((int)dimentionX + 1);
 		xPosition = (double)randomNum;
 		
-		randomNum = rand.nextInt(dimentionY + 1);
+		randomNum = rand.nextInt((int)dimentionY + 1);
 		yPosition = (double)randomNum;
 
 		size = diameter;
