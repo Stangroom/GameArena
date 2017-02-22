@@ -70,7 +70,7 @@ public class GameArena
 
         // Create a window
         window = new JFrame();
-        window.setTitle("Let's Play!");
+        window.setTitle("0");
 
         // Create a JavaFX canvas as a Swing panel.
         jfxPanel = new JFXPanel();
@@ -91,6 +91,10 @@ public class GameArena
                 initFX();
             }
         });
+	}
+	
+	public void score(String score){
+		window.setTitle(score);
 	}
 
    private void initFX() {

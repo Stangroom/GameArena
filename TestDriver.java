@@ -10,9 +10,11 @@ public class TestDriver{
 		Ball[] ballArray = new Ball[10000];
 		int ballCounter = 0;
 		int ballAdder = 0;
-
+		double initalTime = System.currentTimeMillis();
+		
 		while(running){
 			game.pause();
+			game.score(Double.toString(System.currentTimeMillis() - initalTime));
 			if(ballAdder == 200){
 				ballArray[ballCounter] = new Ball(gameWidth, gameWidth, 25, "RED");
 				game.addBall(ballArray[ballCounter]);
@@ -33,7 +35,7 @@ public class TestDriver{
 				running = false;
 			}
 		}
-		
+		System.out.println("Final Score:" + Double.toString(System.currentTimeMillis() - initalTime));
 		System.out.println("Game Over");
 		game.exit();
 	}
